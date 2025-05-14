@@ -1,5 +1,5 @@
 apiVersion: v2
-name: my-python
+name: my-python2
 description: My python Helm chart for K8S
 
 # A chart can be either an 'application' or a 'library' chart.
