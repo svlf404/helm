@@ -122,7 +122,7 @@ spec:
     spec:
       containers:
       - name: my-grafana
-        image: grafana/grafana
+        image: svlf404/k8s-grafana
         resources:
           limits:
             memory: "128Mi"
