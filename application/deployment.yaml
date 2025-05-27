@@ -34,10 +34,19 @@
 #  - port: 8889
 #    targetPort: 8889
 #---    
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-python
+  labels:
+    environment: dev
+    app: my-python
+---    
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-prometheus
+  namespace: my-python
 spec:
   replicas: 1
   selector:
@@ -71,6 +80,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: my-prometheus
+  namespace: my-python
 spec:
   type: LoadBalancer
   selector:
@@ -83,6 +93,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-prometheus-conf
+  namespace: my-python
 data:
   prometheus.yml: |
     global:
@@ -110,6 +121,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-grafana
+  namespace: my-python
 spec:
   replicas: 2
   selector:
@@ -134,6 +146,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: my-grafana
+  namespace: my-python
 spec:
   type: LoadBalancer
   selector:
