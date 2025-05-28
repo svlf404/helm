@@ -1,18 +1,40 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-python-ingress
-  labels:
-    name: my-python-ingress
+  name: ing-python
+  namespace: ns-python
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
-  - host: my-python.local
+  - host: python.local
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: my-python
+            name: svc-python
             port: 
               number: 8889
+  - host: grafana.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: svc-grafana
+            port: 
+              number: 3000
+  - host: prometheus.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: svc-prometheus
+            port: 
+              number: 9090     
