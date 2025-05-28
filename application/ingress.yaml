@@ -15,7 +15,7 @@ spec:
         path: "/"
         backend:
           service:
-            name: svc-python
+            name: my-python
             port: 
               number: 8889
   - host: grafana.local

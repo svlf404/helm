@@ -88,7 +88,7 @@ data:
 
       - job_name: "my-python"
         static_configs:
-          - targets: ["svc-python:8889"]
+          - targets: ["my-python:8889"]
             labels:
               app: "my-python"
 ---
