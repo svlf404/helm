@@ -98,7 +98,7 @@ metadata:
   name: my-grafana
   namespace: ns-python
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: my-grafana
