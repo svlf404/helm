@@ -10,7 +10,7 @@
 #kind: Deployment
 #metadata:
 #  name: my-python
-#  namespace: ns-python
+#  namespace: my-python
 #spec:
 #  replicas: 2
 #  selector:
@@ -35,7 +35,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-prometheus
-  namespace: ns-python
+  namespace: my-python
 spec:
   replicas: 1
   selector:
@@ -68,7 +68,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-prometheus-conf
-  namespace: ns-python
+  namespace: my-python
 data:
   prometheus.yml: |
     global:
@@ -96,7 +96,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-grafana
-  namespace: ns-python
+  namespace: my-python
 spec:
   replicas: 1
   selector:
@@ -121,7 +121,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: svc-grafana
-  namespace: ns-python
+  namespace: my-python
 spec:
   type: ClusterIP
   selector:
@@ -134,7 +134,7 @@ spec:
 #kind: Service
 #metadata:
 #  name: svc-python
-#  namespace: ns-python
+#  namespace: my-python
 #spec:
 #  type: ClusterIP
 #  selector:
@@ -147,7 +147,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: svc-prometheus
-  namespace: ns-python
+  namespace: my-python
 spec:
   type: ClusterIP
   selector:
